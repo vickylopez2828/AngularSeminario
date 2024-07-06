@@ -18,10 +18,8 @@ import { GameOffersComponent } from './components/game-offers/game-offers.compon
 import { StarComponent } from './components/star/star.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { MyGamesComponent } from './components/my-games/my-games.component';
 import { GameComponent } from './components/game/game.component';
-import { GameFormComponent } from './components/game-form/game-form.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +31,8 @@ import { GameFormComponent } from './components/game-form/game-form.component';
     StarComponent,
     RegisterComponent,
     LoginComponent,
-    AdminPanelComponent,
     MyGamesComponent,
     GameComponent,
-    GameFormComponent,
   ],
   imports: [
     BrowserModule,

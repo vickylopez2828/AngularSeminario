@@ -21,55 +21,51 @@
             
             <!-- <button>Cerrar Sesion</button> -->
             @if(!(userLoginOn$ | async)){
-                <button [routerLink]="['/admin']" class="log-in">ADMIN</button>
                  <button [routerLink]="['/register']" class="log-in">REGISTRATE</button>
                  <button [routerLink]="['/login']" class="sign-in">INGRESAR</button>
              
-                }
-             @if((userLoginOn$ | async) && (userRole$  | async)=== 'admin'){
-                <!-- si es admin
-                {{userData$ | async}} PARA ACCEDER AL NOMBRE DE USUARIO -->
-                <button [routerLink]="['/admin']" class="log-in">ADMIN</button>
+            }
+             @if(userLoginOn$ | async){
                 <button [routerLink]="['/myGames']" class="log-in">MIS JUEGOS</button>
                 <button (click)="closeSession()" [routerLink]="['/login']" class="sign-in">SALIR</button>
              }
-             @if((userLoginOn$ | async) && (userRole$  | async)=== 'user'){
-                <!-- si es usuario logueado -->
-                <!-- {{userData$ | async}} PARA ACCEDER AL NOMBRE DE USUARIO -->
-                <button [routerLink]="['/myGames']" class="log-in">MIS JUEGOS</button>
-                <button (click)="closeSession()" [routerLink]="['/login']" class="sign-in">SALIR</button>
-             }
-            
-             
         </div>
         <div class="menu-burger" >
             <button (click)="toggleClass()"><img src="../assets/image/icons/iconHamb.svg" alt="menu-burger"></button>
         </div>
+        <!-- nav mobile -->
         <nav id="menu-user" [ngClass]="getClassMenu()">
             <div class="side-options">
-                <p class="body-bold name-user">Hola!</p>
+                <p class="body-bold name-user">Hola {{userData$ | async}}!</p>
                 <a [routerLink]="['/offers']">
                     <div class="option">
-                        
                         <p class="body-bold">Ofertas</p>
                     </div>
                 </a>
-                <a [routerLink]="['/register']">
-                    <div class="option">
-                        <p class="body-bold">Registrate</p>
-                    </div>
-                </a>
-                <a [routerLink]="['/login']">
-                    <div class="option">
-                        <p class="body-bold">Ingresar</p>
-                    </div>
-                </a>
-                <a [routerLink]="['/']">
-                    <div class="option">
-                       
-                        <p class="body-bold">Cerrar Sesión</p>
-                    </div>
-                </a>
+                @if(userLoginOn$ | async){
+                    <a [routerLink]="['/myGames']">
+                        <div class="option">  
+                            <p class="body-bold">Mis Juegos</p>
+                        </div>
+                    </a>
+                    <a [routerLink]="['/']">
+                        <div class="option">  
+                            <p class="body-bold">Cerrar Sesión</p>
+                        </div>
+                    </a>
+                }
+                @if(!(userLoginOn$ | async)){
+                    <a [routerLink]="['/register']">
+                        <div class="option">
+                            <p class="body-bold">Registrate</p>
+                        </div>
+                    </a>
+                    <a [routerLink]="['/login']">
+                        <div class="option">
+                            <p class="body-bold">Ingresar</p>
+                        </div>
+                    </a>
+                }
             </div>
         </nav>
         

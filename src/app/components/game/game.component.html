@@ -27,13 +27,7 @@
         </p>
     </div>
     <div class="card-btns">
-        @if(test){
-            <app-star [game] = "game"></app-star>
-            <button  class='card-btn-buy'></button>
-        } @else if (!test){
-            <app-star [game] = "game"></app-star>
-            <button  [ngClass]="getClassCart(game)" (click)="addCart(game)"></button>
-        }
-        
+        <app-star [game] = "game"></app-star>
+        <button  [ngClass]="getClassCart(game)" (click)="addCart(game)"></button>
     </div>
 </article>

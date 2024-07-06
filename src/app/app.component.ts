@@ -14,8 +14,7 @@ export class AppComponent {
   userLoginOn$: Observable<boolean>;
   //nombre de usuario
   userData$: Observable<String>;
- //rol de usuario
-  userRole$: Observable<String>;
+
 
   //userData: LoginRequest = {email:'', password: ''}
   open: boolean = false;
@@ -23,11 +22,9 @@ export class AppComponent {
   constructor(private gameService: GameCartService,private loginService: UserService){
     this.userLoginOn$ = this.loginService.currentUserLoginOn.asObservable();
     this.userData$ = this.loginService.currentUserData.asObservable();
-    this.userRole$ = this.loginService.currentUserRole.asObservable();
   }
   
   closeSession(){
-    //this.userLoginOn = false;
     this.loginService.closeSession();
   }
   filter(event: Event){

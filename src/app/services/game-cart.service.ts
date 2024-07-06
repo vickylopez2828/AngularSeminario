@@ -33,8 +33,6 @@ export class GameCartService implements OnInit, OnDestroy {
   private gameCopySubscription: Subscription;
   //private myGamesSubscription: Subscription;
 
-  private id: any;
-
   //esta bien inicializar los juegos aqui en el service y no en el game-list-component
   constructor(private gameDataService: GameDataService) {   
     this.gameSubscription = this.gameDataService.getAll().subscribe(games => {
@@ -121,43 +119,4 @@ export class GameCartService implements OnInit, OnDestroy {
     this.games.next(this._games);
   }
 
-  updateNewData(data: any){
-    const { id, title, description, price_normal, price_off,
-            bought, qualification, type, img} = data[1].game;
-    const newGame: Game = { id, title, description, price_normal, price_off, 
-                            bought,qualification, type, gameImage: img}                     
-    this._games.push(newGame);
-    this.games.next(this._games);
-  }
-
-  addGame(form: FormData): Observable<Game>{
-    return this.gameDataService.addGame(form).pipe(
-      tap((data: any) => {
-        this.updateNewData(data);
-      })
-    );
-  }
-
-  deleteGame(id: any): Observable<any>{
-    return this.gameDataService.deleteGame(id).pipe(
-      tap((data: any) => {
-        if(data.status == 200){
-          //console.log(data, "delete")
-          this._games = this._games.filter(game => game.id != (data.game.id));
-          this.games.next([...this._games]);
-        }
-      })
-    );
-  }
-  updateId(id: any){
-    this.id = id;
-  }
-  updateGame(form: FormData):Observable<Game>{
-    //buscar el juego y modifiacrlo segun el nuevo
-    return this.gameDataService.updateGame(this.id, form).pipe(
-      tap((data: any) => {
-        this.updateNewData(data);
-      })
-    );
-  }
 }

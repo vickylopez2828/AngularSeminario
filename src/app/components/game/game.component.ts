@@ -10,8 +10,6 @@ import { GameCartService } from '../../services/game-cart.service';
 export class GameComponent {
 
   @Input()
-  test:boolean = false;
-  @Input()
   game: Game = {
     title: "",
     price_normal: 0,
@@ -28,14 +26,6 @@ export class GameComponent {
 
   addCart(game: Game){
     this.gameCartService.addToCart(game);
-    //chequear si esta logueado?
-    // this.userLoginOn$.subscribe( value =>{
-    //   if(!value){
-    //     alert("primero debes loguearte")
-    //   } else {
-    //     this.gameCartService.addToCart(game);
-    //   }
-    // })
   }
   //cambia clase del boton comprar(carrito)
   //si esta comprado lo deshabilita
