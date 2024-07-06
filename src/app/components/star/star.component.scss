@@ -1,0 +1,16 @@
+$black: #2B043B;
+$exit-color: #66b527;
+
+.rating button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.filled {
+    color: $exit-color;
+}
+
+.empty {
+    color: $black;
+}

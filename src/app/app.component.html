@@ -1,0 +1,83 @@
+
+    <header id="header-home">
+        <figure>
+            
+        <img [routerLink]="['/']" class="logo-header" src="../assets/image/home/logoVioletaOscuro.png" alt="logo">
+        </figure>
+        <div class="container-search">
+                <img src="../assets/image/icons/lupaNegra.png" alt="search">
+                <input 
+                    class="input-search" 
+                    type="text" 
+                    placeholder="Busca tu juego"
+                    (input) = "filter($event)" 
+                >
+        </div>
+        <div class="container-search-login">
+            
+            <button [routerLink]="['/offers']" class="btn-header-offer">
+                <img src="../assets/image/icons/iconOffer.svg" alt="offer"> Ofertas
+            </button>
+            
+            <!-- <button>Cerrar Sesion</button> -->
+            @if(!(userLoginOn$ | async)){
+                <button [routerLink]="['/admin']" class="log-in">ADMIN</button>
+                 <button [routerLink]="['/register']" class="log-in">REGISTRATE</button>
+                 <button [routerLink]="['/login']" class="sign-in">INGRESAR</button>
+             
+                }
+             @if((userLoginOn$ | async) && (userRole$  | async)=== 'admin'){
+                <!-- si es admin
+                {{userData$ | async}} PARA ACCEDER AL NOMBRE DE USUARIO -->
+                <button [routerLink]="['/admin']" class="log-in">ADMIN</button>
+                <button [routerLink]="['/myGames']" class="log-in">MIS JUEGOS</button>
+                <button (click)="closeSession()" [routerLink]="['/login']" class="sign-in">SALIR</button>
+             }
+             @if((userLoginOn$ | async) && (userRole$  | async)=== 'user'){
+                <!-- si es usuario logueado -->
+                <!-- {{userData$ | async}} PARA ACCEDER AL NOMBRE DE USUARIO -->
+                <button [routerLink]="['/myGames']" class="log-in">MIS JUEGOS</button>
+                <button (click)="closeSession()" [routerLink]="['/login']" class="sign-in">SALIR</button>
+             }
+            
+             
+        </div>
+        <div class="menu-burger" >
+            <button (click)="toggleClass()"><img src="../assets/image/icons/iconHamb.svg" alt="menu-burger"></button>
+        </div>
+        <nav id="menu-user" [ngClass]="getClassMenu()">
+            <div class="side-options">
+                <p class="body-bold name-user">Hola!</p>
+                <a [routerLink]="['/offers']">
+                    <div class="option">
+                        
+                        <p class="body-bold">Ofertas</p>
+                    </div>
+                </a>
+                <a [routerLink]="['/register']">
+                    <div class="option">
+                        <p class="body-bold">Registrate</p>
+                    </div>
+                </a>
+                <a [routerLink]="['/login']">
+                    <div class="option">
+                        <p class="body-bold">Ingresar</p>
+                    </div>
+                </a>
+                <a [routerLink]="['/']">
+                    <div class="option">
+                       
+                        <p class="body-bold">Cerrar Sesión</p>
+                    </div>
+                </a>
+            </div>
+        </nav>
+        
+    </header>
+    <section class="container-games-cart">
+        <router-outlet></router-outlet>
+    </section>
+    
+
+    
+    

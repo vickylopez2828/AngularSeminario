@@ -1,0 +1,63 @@
+/*=======card=======================*/
+/*card comun sin tag*/
+
+$primary: #8b27b5;
+$white: #FAF3FE;
+$black: #2B043B;
+$acento: #F69B12;
+$exit-color: #66b527;
+$error-color: #d33636;
+$grey-1: #6e5c75;
+$primary-s2: #681d88;
+$acento-l1: #f69b1280;
+$secondary-s1: #96d727;
+h1, h2, h3, h4, .tx-small, .body-bold, .body1, .body2, .tx-btn {
+    font-family: var(--font);
+    font-style: normal;
+    line-height: normal;
+    font-weight: 300;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 20px;
+}
+h3{
+    font-size: 19px;
+    font-weight: 400;
+}
+h4{
+    font-size: 17px;
+    font-weight: 700;
+}
+.body-bold {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+.body1 {
+    font-size: 14px;
+    line-height: 24px;
+}
+.body2 {
+    font-size: 12px;
+    line-height: 24px;
+}
+.tx-small{
+    font-size: 10px;
+}
+.tx-btn {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+.game-list{
+    
+    margin: 0px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+}
+

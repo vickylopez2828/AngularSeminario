@@ -1,0 +1,11 @@
+<div class="game-list">
+    @if(games$ | async){
+        @for(game of games$ | async; track game.title){
+            <app-game [game] = "game" [test]="false"></app-game>
+        }
+    }
+</div>
+
+
+
+

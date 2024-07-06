@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+$primary: #8b27b5;
+$white: #FAF3FE;
+$black: #2B043B;
+$acento: #F69B12;
+body{
+    width: 100%;
+    background-color: $white;
+    color: $black;
+    font-size: 16px;
+}

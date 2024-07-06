@@ -1,0 +1,129 @@
+$primary: #8b27b5;
+$white: #FAF3FE;
+$black: #2B043B;
+$acento: #F69B12;
+$exit-color: #66b527;
+$error-color: #d33636;
+$grey-1: #6e5c75;
+$primary-l1: #dbbce8;
+$primary-l2: #eedff4;
+$primary-l3: #f3e9f8;
+$primary-s1: #6f1f91;
+$primary-s2: #681d88;
+$primary-s3: #53176d;
+$acento-l1: #f69b1280;
+$secondary-s1: #96d727;
+*{
+    font-size: 14px;
+}
+.container-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.title-section{
+    margin: 40px 10px 10px 30px;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+    color: $black;
+    
+}
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 20px 10px 10px 10px;
+
+}
+th, td {
+    border: 1px solid $black;
+    padding: 8px;
+    
+}
+th {
+    background-color: $primary-s3;
+    text-align: left;
+    color: $white;
+}
+tr:nth-child(even) {
+    background-color: $primary-l1;
+}
+tr{
+    background-color: $primary-l2;
+}
+tr:hover {
+    background-color: $primary;
+}
+
+td button {
+    border: none;
+    background-color: transparent;
+    
+}
+
+
+td.col-btns{
+    cursor: pointer;
+    text-align: center; 
+    vertical-align: middle;
+    min-width: 40px;
+    background-color: $acento;
+}
+td.col-btns button:hover{
+    transform: scale(1.8);
+  
+}
+.btn-modify {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Elimina el relleno del botón */
+}
+.btn-modify svg {
+    display: block; /* Hace que el SVG sea un bloque para que los márgenes funcionen */
+    margin: auto; /* Centra el SVG dentro del botón */
+}
+.card-item-img{
+    width: 80px;
+    height: 50px;
+    
+    background-size: cover;
+}
+.col-img{
+    width: 100px;
+}
+.container-title{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-form-game{
+    margin: 40px 30px 10px 40px;
+    width: 110px;
+    height: 40px;
+    background-color: $acento;
+    border: none;
+    border-radius: 10px;
+    color: $white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-form-game:hover{
+    background-color: $primary-s2;
+    font-size: 16px;
+    transition: ease 0.2s;
+
+}
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 2px;
+    background-color: $acento;
+    font-size: 12px;
+    border: 1px solid #3e549a;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  }
+// td.btn-modify {
+//     display: flex;
+//     justify-content: center;
+//     //align-items: center;
+        
+// }

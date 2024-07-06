@@ -1,0 +1,70 @@
+<section class="cart">
+    <h1 class="title-section">Carrito de Compras</h1>
+    <div id="cart" class="container-cart">
+        <div class="cart-title">
+            
+            <p class="body-bold">Tu compra</p>
+        </div>
+        <div class="cart-body">
+            <div class="cart-buys">
+         
+                @if(cartListIsEmpty$ | async){
+                    <p class="body-bold">No hay compras...</p>
+                }
+                @for(game of cartList$ | async; track game.title){
+                    <div class="cart-item">
+                        <div>
+                            <img class="cart-item-img" [src]="game.gameImage" [alt]='game.title'>
+                            <p class="body2">{{game.title}} </p>
+                        </div>
+                        <div>
+                            @if(game.type == 'gratis'){
+                                <p class="body2 item-price">$0</p>
+                                <button (click)="removeCart(game)"><img src="../../assets/image/icons/iconPapelera.svg" alt="papelera"></button>
+                                
+                            } 
+                            @else if (game.type == 'off'){
+                                <p class="body2 item-price">${{game.price_off}}</p>
+                                <button (click)="removeCart(game)"><img src="../../assets/image/icons/iconPapelera.svg" alt="papelera"></button>
+                                
+                            } 
+                            @else{
+                                <p class="body2 item-price">${{game.price_normal}}</p>
+                                <button (click)="removeCart(game)"><img src="../../assets/image/icons/iconPapelera.svg" alt="papelera"></button>
+                                
+                            }
+                        </div>
+                    </div>
+                }
+               
+                
+            </div>
+            <div class="cart-container-prices-btns">
+                <div class="cart-item cart-item-price">
+                    <h4>Total</h4>
+                    <h4>${{totalCart$ | async}}</h4>
+                </div>
+                <div class="cart-btns">
+                    <button (click)="togglePopup()" class="btn-main-active">Comprar</button>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</section>
+<section  [ngClass]="{'popup': isPopupOpen, 'close': !isPopupOpen}">
+    <div class="popup-content" >
+        <button (click)="togglePopup()" class="btn-close"></button>
+        <h3>Deseas finalizar tu compra?</h3>
+        <div class="cart-item cart-item-price">
+            <h4>Total</h4>
+            <h4>${{totalCart$ | async}}</h4>
+        </div>
+        <div class="container-btn-popup">
+            <button (click)="finalBuy()" class="btn-final-buy">Si</button>
+            <button (click)="togglePopup()" class="btn-final-buy">No</button>
+        </div>
+        
+    </div>
+</section>

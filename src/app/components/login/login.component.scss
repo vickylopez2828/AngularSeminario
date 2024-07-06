@@ -1,0 +1,165 @@
+/* =============Páginas Login y Registro=============*/
+$primary: #8b27b5;
+$white: #FAF3FE;
+$black: #2B043B;
+$acento: #F69B12;
+$primary-l2: #eedff4;
+$primary-s3: #53176d;
+$primary-s1: #6f1f91;
+$error-color: #d33636;
+$exit-color: #66b527;
+#login {
+    background-image: url('../../../assets/image/home/fondoForm.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3%;
+    height: 100vh;
+    display: flex;
+    align-items:flex-start;
+}
+
+
+
+.containerSesion {
+    background-color: rgba(43, 4, 59, 0.60);
+    color: $white;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto; /*posiciono el contendor en el centro*/
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-around ; 
+    padding: 20px 10px;
+    height: 80%;
+}
+
+.titulo {
+    margin-top: 20px;
+    margin-bottom:20px;
+    color: $acento;
+}
+
+.titulo h3 {
+    color: $white;
+    text-shadow: 2px 2px 5px rgba(253, 253, 253, 0.25);
+}
+
+.formField {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.inputContainer{
+    position: relative;
+    display: inline-block;
+    
+}
+.inputContainer input{
+    padding-left: 5px;
+}
+
+.inputContainer svg {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta la posición horizontal del icono */
+    transform: translateY(-50%);
+}
+input {
+    width: 320px;
+    height: 35px;
+    border-radius: 10px;
+}
+
+.containerSesion .ng-valid:not(form).ng-touched{
+    border-left: 5px solid $exit-color;
+}
+.containerSesion .ng-invalid:not(form).ng-touched{
+    border-left: 5px solid $error-color;
+}
+input:focus {
+    border: none;
+}
+.tx-danger{
+    color: $error-color;
+    font-size: 12px;
+}
+label {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+label span {
+    color: red;
+}
+
+
+
+.btn-main {
+    width: 320px;
+    height: 35px;
+    border-radius: 10px;
+    color: $white;
+    border: none;
+    cursor: pointer;
+}
+.btn-main-active {
+ 
+    background-color: $primary;
+}
+.btn-main-inactive {
+    background-color: $primary-l2;
+}
+.btn-main:hover{
+    background-color: $primary-s1;
+    color: $acento;
+}
+.containerSesion input {
+    border: none;
+}
+
+.containerSesion .btn-main {
+    margin-top: 20px;
+}
+
+.body2 {
+    font-size: 12px;
+    line-height: 24px;
+}
+.tx-small{
+    font-size: 10px;
+}
+.btn-third {
+    color: $acento;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.btn-third:hover {
+    color: $acento;
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+.formFieldRegistrate {
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.btn-redes {
+    display:flex;
+    margin-bottom: 10px;
+    
+}
+
+.btn-redes .btn-white {
+    width: 155px;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+}

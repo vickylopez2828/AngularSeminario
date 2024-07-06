@@ -1,0 +1,220 @@
+$primary: #8b27b5;
+$white: #FAF3FE;
+$black: #2B043B;
+$acento: #F69B12;
+$primary-l2: #eedff4;
+$primary-s3: #53176d;
+$primary-l1: #dbbce8;
+$secondary: #a7ef2b;
+/*==========cards oferta====================*/
+h1{
+    font-size: 30px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+button{
+    cursor: pointer;
+}
+.carrousel-cards-offers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.container-cards-offers{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.card-offer{
+    display: inline-block;
+
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+    background-image: url("../../../assets/image/home/fondoForm.png");
+    background-size: cover;
+    position: relative;
+    transition: all .5s ease;
+    margin: 30px 15px;
+}
+
+h3{
+    font-size: 26px;
+    font-weight: 400;
+}
+.card-offer h3.card-offer-title{
+    margin-top: 10px;
+    color: $white;
+    font-size: 20px ;
+    text-align: center;
+    text-shadow: 1px 1px 10px $black;
+    position: relative;
+    z-index: 2;
+}
+
+.container-card-offer{
+  width: 35%;
+    height: 228px;
+    position: absolute;
+    top: 20%;
+    right: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;    
+}
+.body-bold {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.container-card-offer h4{
+    color: $white;
+    text-align: center ;
+    width: 150px;
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.75);
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8%;
+}
+
+.card-offer-prices{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 14%;
+}
+
+.card-offer-prices p.body{
+    color: $primary-l1;
+    text-decoration: line-through;
+}
+.card-offer-prices h3{
+    color: $acento;
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.75);
+}
+
+.container-card-offer button{
+    width: 90px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    background: $secondary;
+    color: $white;
+    background-image: url('../../../assets/image/icons/carrito.svg');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 30px 15px;
+    text-align: right;
+    margin-right: 8%;
+    padding-right: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.card-offer img:nth-child(2){
+    max-height: 250px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.card-offer img:last-child{
+    position: absolute;
+    width: 240px;
+    height: 100%;
+    bottom: 3%;
+    left:-5%;
+    /* right: 0; */
+    margin: auto;
+    transform: translateY(14%);
+    transition: .5s ease;
+    opacity: 0;
+}
+
+.card-offer:hover{
+    /*perspectiva da profundidad, rota 10grados hacia atras*/
+    transform: perspective(300px) 
+                rotateX(10deg); 
+}
+.card-offer::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    /*de arriba abajo enmpiza transparente, al 80% del elem cambia a gris oscuro y termina en negro total*/
+    background-image: linear-gradient(to bottom, transparent 10%, 
+                                rgba(0, 0, 0, 0.5) 30%, 
+                                rgba(0, 0, 0) 98%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.card-offer:hover::before{
+    opacity: 1;
+}
+.card-offer:hover img:last-child{
+    opacity: 1;
+}
+.card-offer:hover img:nth-child(2){
+    opacity: 0.5;
+}
+
+.container-count-down{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-count-down p.title-count-down{
+    color: $white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    bottom: 16%;
+    left: 5%;
+}
+.container-count-down .count-down{
+    position: absolute;
+    bottom: 4%;
+    left: 2%;
+    width: 65%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 3px;
+}
+
+.container-count-down .count-down p.body-bold{
+    color: $acento;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 13px;
+}
+.container-count-down .count-down p.time{
+    font-size: 8px;
+}
+.count-down div{
+    width: 40px;
+    height: 35px;
+    border-radius: 5px;
+    background: $primary-l2;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 768px) {
+    .container-cards-offers{
+        flex-direction: column;
+    }
+    h1{
+        font-size: 24px;
+        
+    }
+}

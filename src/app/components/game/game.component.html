@@ -1,0 +1,39 @@
+<article [ngClass]="getClass(game)">
+    <figure>
+        <!-- src = "http://localhost:3001/static/freeFire.jpg" -->
+    @if(game.gameImage){
+        <img class="card-img"  [src] = 'game.gameImage' [alt]='game.title'>
+    }
+    </figure>
+    <div class="card-body">
+        <div class="card-header">
+            <p class="card-title body-bold">{{game.title}}</p>
+            <div class="card-price">
+                @if(game.type == 'gratis'){
+                    <p class="price-off ">{{game.price_normal | currency:'USD':'symbol':'1.0'}}</p>
+                    <h4 class="price-normal">$0</h4>
+                }@else if(game.type == 'off'){
+                    <p class="price-off ">{{game.price_normal | currency:'USD':'symbol':'1.0'}}</p>
+                    <h4 class="price-normal">{{game.price_off | currency:'USD':'symbol':'1.0'}}</h4>
+                }
+                @else{
+                    <p class="price-off">{{game.price_off | currency:'USD':'symbol':'1.0'}}</p>
+                    <h4 class="price-normal">{{game.price_normal | currency:'USD':'symbol':'1.0'}}</h4>
+                }
+                
+            </div>
+        </div>
+        <p class="card-description tx-small">{{game.description}}
+        </p>
+    </div>
+    <div class="card-btns">
+        @if(test){
+            <app-star [game] = "game"></app-star>
+            <button  class='card-btn-buy'></button>
+        } @else if (!test){
+            <app-star [game] = "game"></app-star>
+            <button  [ngClass]="getClassCart(game)" (click)="addCart(game)"></button>
+        }
+        
+    </div>
+</article>

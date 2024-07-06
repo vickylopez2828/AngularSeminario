@@ -1,0 +1,62 @@
+<body id="login">
+    <form [formGroup]="loginForm" class="containerSesion">
+        <div class="titulo">
+            <h3>Iniciá Sesión</h3> 
+        </div>
+        
+        <div>
+            <p class="tx-danger">{{loginError}}</p>
+            <div class="formField">
+                <label class="body2" for="mail">Correo Electrónico </label>
+                <br>
+                <div class="inputContainer">
+                    <input formControlName="email" type="mail" name="mail" id="mail" required>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17 4H3C2.86739 4 2.74021 4.05268 2.64645 4.14645C2.55268 4.24021 2.5 4.36739 2.5 4.5V15.5C2.5 15.6326 2.55268 15.7598 2.64645 15.8536C2.74021 15.9473 2.86739 16 3 16H17C17.1326 16 17.2598 15.9473 17.3536 15.8536C17.4473 15.7598 17.5 15.6326 17.5 15.5V4.5C17.5 4.36739 17.4473 4.24021 17.3536 4.14645C17.2598 4.05268 17.1326 4 17 4ZM3.5 15V5H16.5V15H3.5Z" fill="#2B043B"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.324 4.88L10.279 10.88C10.1883 10.9573 10.073 10.9997 9.95383 10.9995C9.83466 10.9994 9.71947 10.9566 9.62902 10.879L2.67302 4.879C2.59559 4.81237 2.54042 4.72362 2.51494 4.62469C2.48947 4.52577 2.4949 4.42141 2.53052 4.32567C2.56614 4.22992 2.63023 4.14739 2.71417 4.08916C2.79811 4.03094 2.89786 3.99982 3.00002 4H17C17.1021 4.0002 17.2018 4.03166 17.2855 4.09017C17.3692 4.14867 17.433 4.23141 17.4683 4.32725C17.5036 4.42309 17.5086 4.52743 17.4829 4.62625C17.4571 4.72507 17.4016 4.81363 17.324 4.88ZM15.642 5H4.34502L9.95702 9.841L15.642 5Z" fill="#2B043B"/>
+                    </svg>
+                </div>
+                @if(email.invalid && (email.dirty || email.touched)){
+                    <div class="tx-danger">
+                        @if(email.errors?.['required']){
+                            <p>Email es requerido</p>
+                        } 
+                        @if(email.errors?.['email']){
+                            <p>El email debe tener un formato válido</p>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="formField" >
+                <label class="body2" for="contraseña">Contraseña</label>
+                <br>
+                <div class="inputContainer">
+                    <input formControlName="password" type="password" name="contraseña" id="contraseña" required>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M8.94169 4.22734C9.29299 4.18659 9.64636 4.16628 10 4.16651C13.8867 4.16651 17 6.58567 18.3334 9.99984C18.0106 10.8303 17.5745 11.6122 17.0375 12.3232M5.43335 5.43234C3.73335 6.46984 2.41669 8.07734 1.66669 9.99984C3.00002 13.414 6.11335 15.8332 10 15.8332C11.6101 15.8417 13.191 15.4032 14.5667 14.5665M8.23335 8.23317C8.00119 8.46534 7.81702 8.74096 7.69138 9.0443C7.56573 9.34764 7.50106 9.67276 7.50106 10.0011C7.50106 10.3294 7.56573 10.6545 7.69138 10.9579C7.81702 11.2612 8.00119 11.5368 8.23335 11.769C8.46552 12.0012 8.74114 12.1853 9.04448 12.311C9.34782 12.4366 9.67294 12.5013 10.0013 12.5013C10.3296 12.5013 10.6547 12.4366 10.9581 12.311C11.2614 12.1853 11.537 12.0012 11.7692 11.769" stroke="#2B043B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.33337 3.33325L16.6667 16.6666" stroke="#2B043B" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                @if(password.invalid && (password.dirty || password.touched)){
+                    <div class="tx-danger">
+                        @if(password.errors?.['required']){
+                            <p>El password es requerido</p>
+                        } 
+                    </div>
+                }
+                
+            </div>
+        </div>
+        
+        <div>
+             <div>
+                <button (click)="login()" type="submit" class="btn-main btn-main-active tx-btn">Iniciar Sesión</button>
+            </div>
+            <div class="formFieldRegistrate">
+                <p class="body2">No tienes cuenta?</p>
+                <a [routerLink]="['/register']"> <p class="tx-small btn-third"> Regístrate </p> </a>
+            </div>
+        </div>
+       
+    </form>
+</body>
