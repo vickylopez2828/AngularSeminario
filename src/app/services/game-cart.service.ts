@@ -93,7 +93,6 @@ export class GameCartService implements OnInit, OnDestroy {
     this.sumTotalCart();
     game.bought = true;
     this.cartList.next(this._cartList) 
-    console.log("cartlist",this._cartList);
   }
   sumTotalCart(): void{
     let price = 0;
@@ -108,15 +107,6 @@ export class GameCartService implements OnInit, OnDestroy {
     });
     this._totalCart = price;
     this.totalCart.next(this._totalCart);
-  }
-  //fn que filtra juegos segun busqueda x nombre
-  filter(value: string){
-    //filter: crea una nueva lista con los elem q pasan la prueba de la fn
-    this._games = this.gamesCopy.filter(({title} : Game) => {
-      //include:verifica si el título incluye el valor de busqueda, en minusculas ambos
-      return title.toLowerCase().includes(value.toLowerCase());
-    })
-    this.games.next(this._games);
   }
 
 }

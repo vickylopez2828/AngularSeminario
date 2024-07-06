@@ -27,11 +27,6 @@ export class AppComponent {
   closeSession(){
     this.loginService.closeSession();
   }
-  filter(event: Event){
-    const inputElement = event.target as HTMLInputElement;
-    const search: string = inputElement.value;
-    this.gameService.filter(search);
-  }
 
   toggleClass(){
     this.open = !this.open;

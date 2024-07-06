@@ -27,7 +27,6 @@ export class UserService {
     this.userDataService.loginUser(credentials as LoginRequest).subscribe({
       next: (userData) =>{
         this.currentUserLoginOn.next(true);
-        console.log("data",userData.user.email);
         this.currentUserData.next(userData.user.name);
         this.toastr.success("Has iniciado sesión", 'Sesión iniciada!');
         this.router.navigateByUrl('/games');
@@ -44,7 +43,6 @@ export class UserService {
 
   closeSession(){
     this.currentUserLoginOn.next(false);
-    console.log(this.currentUserLoginOn);
   }
 
   //registro de usuario

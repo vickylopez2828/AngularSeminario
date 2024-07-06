@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { LoginRequest } from '../../interfaces/LoginRequest';
 import { FormService } from '../../services/form.service';
