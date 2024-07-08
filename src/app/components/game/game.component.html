@@ -1,9 +1,9 @@
 <article [ngClass]="getClass(game)">
     <figure>
         <!-- src = "http://localhost:3001/static/freeFire.jpg" -->
-    @if(game.gameImage){
-        <img class="card-img"  [src] = 'game.gameImage' [alt]='game.title'>
-    }
+
+    <img class="card-img"  [src] = 'game.gameImage' [alt]='game.title'>
+
     </figure>
     <div class="card-body">
         <div class="card-header">
