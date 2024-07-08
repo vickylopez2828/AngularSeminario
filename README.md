@@ -18,9 +18,9 @@ La API proporciona datos de videojuegos que se pueden usar para desarrollar la a
 
 ##### Endpoints:
 
-  #####Endpoint: "/api/games" 
-  **Method: GET  
-  **Description: Obtiene una lista de todos los videojuegos.
+  #####Endpoint: "/api/games"  
+  Method: GET    
+  Description: Obtiene una lista de todos los videojuegos.
 
   #####Endpoint: "/api/users" 
   **Method: POST
