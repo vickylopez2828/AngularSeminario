@@ -13,12 +13,33 @@ Este proyecto fue generado [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Api
 La API proporciona datos de videojuegos que se pueden usar para desarrollar la aplicación. La api ha sido desarrolada con nodejs y express, la misma ha sido deployada en render. 
-#### API URL: "https://apimundogaming.onrender.com"
-##### Endpoint
-  Get All Games  
-  URL: https://apimundogaming.onrender.com 
+#### API URL: "https://api-mundo-gaming.vercel.app"
+##### Endpoints:
+
+  #####Endpoint: "/api/games" 
   Method: GET  
   Description: Obtiene una lista de todos los videojuegos.
+
+  #####Endpoint: "/api/users" 
+  Method: POST
+  Description: permite registrar un usuario.
+  Body de la solicitud:
+    {
+      "name": "Nombre del usuario",
+      "lastname": "Apellido del usuario",
+      "email": "correo@example.com",
+      "password": "contraseña"
+    }
+
+  #####Endpoint: "/api/users/login" 
+  Method: POST  
+  Description: permite loguear un usuario.
+  Body de la solicitud:
+    {
+      "email": "correo@example.com",
+      "password": "contraseña"
+    }
+  
 
 ## Stackblitz
 Se puede utilizar Stackblitz para desarrollar y probar rápidamente la aplicación en línea. Enlace al proyecto:
