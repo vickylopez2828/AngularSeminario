@@ -9,8 +9,7 @@ import { User } from '../interfaces/User';
 })
 export class UserDataService {
 
-  url : String = 'http://localhost:3001/api/users';
-  
+  url : String = "https://api-mundo-gaming.vercel.app/api/users";
   constructor(private http: HttpClient) {}
 
   //loguear en el server
@@ -21,7 +20,7 @@ export class UserDataService {
 
   //registro de usuario
   registerUser(user:User): Observable<any>{
-    return this.http.post('http://localhost:3001/api/users', user);
+    return this.http.post(`${this.url}`, user);
 
   }
 }

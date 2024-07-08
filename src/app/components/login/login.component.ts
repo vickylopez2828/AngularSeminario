@@ -10,8 +10,6 @@ import { FormService } from '../../services/form.service';
 })
 export class LoginComponent {
   loginError: string = '';
- // currentUserData$: Observable<User>;
-  //currentUserLoginOn$: Observable<boolean>;
 
   loginForm = this.formBuilder.group({
     email:['', [Validators.required, Validators.email]],

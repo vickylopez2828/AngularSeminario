@@ -1,10 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Game } from '../interfaces/Game'
 
-//const URL = "http://localhost:3001/api/games";
-const URL = "https://apimundogaming.onrender.com";
+const URL = "https://api-mundo-gaming.vercel.app/api/games"
 
 @Injectable({
   providedIn: 'root'

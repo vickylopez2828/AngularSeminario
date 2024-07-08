@@ -1,12 +1,12 @@
-import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Game } from '../interfaces/Game';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { GameDataService } from './game-data.service';
 import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GameCartService implements OnInit, OnDestroy {
+export class GameCartService implements OnDestroy {
  /*behavior subject:  mantiene el valor más reciente y lo emite 
   /a los nuevos suscriptores cuando se suscriben.
   */
@@ -22,16 +22,10 @@ export class GameCartService implements OnInit, OnDestroy {
   //los juegos comprados
   private _myGames: Game[] = [];
   myGames: BehaviorSubject<Game[]> = new BehaviorSubject<Game[]>([]);
-
-  private gamesCopy: Game[] = [];
-
-  //private _search: string = "";
-  search: BehaviorSubject<string> = new BehaviorSubject<string>("");
   
   //guardo las suscripciones para luego desuscribirme
   private gameSubscription: Subscription;
-  private gameCopySubscription: Subscription;
-  //private myGamesSubscription: Subscription;
+ 
 
   //esta bien inicializar los juegos aqui en el service y no en el game-list-component
   constructor(private gameDataService: GameDataService) {   
@@ -39,16 +33,10 @@ export class GameCartService implements OnInit, OnDestroy {
       this._games = games;
       this.games.next(this._games);
     }); 
-    
-    this.gameCopySubscription = this.gameDataService.getAll().subscribe(games => this.gamesCopy = games);                                                           
-  }
-  ngOnInit(): void {
   }
 
   ngOnDestroy(): void {
     this.gameSubscription.unsubscribe();
-    this.gameCopySubscription.unsubscribe();
-  //  this.myGamesSubscription.unsubscribe();
   }
  
 
@@ -60,7 +48,7 @@ export class GameCartService implements OnInit, OnDestroy {
         this._games[gameIndex].type = 'ya-es-tuyo';
         this._myGames.push(this._games[gameIndex]);
         this.myGames.next(this._myGames);
-        this.games.next(this._games);// Emitir una copia de la lista actualizada?
+        this.games.next(this._games);
       }
     });
     this._cartList = [];
@@ -81,7 +69,7 @@ export class GameCartService implements OnInit, OnDestroy {
     const gameIndex = this._games.findIndex(g => g.title === game.title);
     if (gameIndex !== -1) {
       this._games[gameIndex].bought = false;
-      this.games.next(this._games); //Emitir una copia de la lista actualizada??
+      this.games.next(this._games); 
     }
   }
 

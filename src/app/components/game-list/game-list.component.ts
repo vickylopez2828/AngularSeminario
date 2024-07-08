@@ -13,10 +13,10 @@ export class GameListComponent {
 
   @Input()
   games$: Observable<Game[]> | undefined;
-  //games$: Observable<Game[]>;
+
 
   constructor(private gameCartService: GameCartService, private loginService: UserService){
-    //this.games$ = gameCartService.games.asObservable();
+    this.games$ = gameCartService.games.asObservable();
   }
 
 }
