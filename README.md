@@ -18,29 +18,29 @@ La API proporciona datos de videojuegos que se pueden usar para desarrollar la a
 
 #### Endpoints:
 
-  #####Endpoint: "/api/games"  
+  ####Endpoint: "/api/games"  
   Method: GET    
   Description: Obtiene una lista de todos los videojuegos.
 
-  #####Endpoint: "/api/users"  
+  ####Endpoint: "/api/users"  
   Method: POST  
   Description: permite registrar un usuario.  
-  Body de la solicitud:
-    {
-      "name": "Nombre del usuario",
-      "lastname": "Apellido del usuario",
-      "email": "correo@example.com",
-      "password": "contraseña"
-    }
+  Body de la solicitud:  
+    {  
+      "name": "Nombre del usuario",  
+      "lastname": "Apellido del usuario",  
+      "email": "correo@example.com",  
+      "password": "contraseña"  
+    }  
 
-  #####Endpoint: "/api/users/login"   
+  ####Endpoint: "/api/users/login"   
   Method: POST    
   Description: permite loguear un usuario.  
-  Body de la solicitud:
-    {
-      "email": "correo@example.com",
-      "password": "contraseña"
-    }
+  Body de la solicitud:  
+    {  
+      "email": "correo@example.com",  
+      "password": "contraseña"  
+    }  
   
 
 ## Stackblitz
