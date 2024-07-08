@@ -12,8 +12,10 @@ Mundo Gaming es una aplicación web de videojuegos. La plataforma permite a los 
 Este proyecto fue generado [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
 ## Api
-La API proporciona datos de videojuegos que se pueden usar para desarrollar la aplicación. La api ha sido desarrolada con nodejs y express, la misma ha sido deployada en render. 
+La API proporciona datos de videojuegos que se pueden usar para desarrollar la aplicación y también permite el registro y login de usuarios. La api ha sido desarrolada con nodejs y express, la misma ha sido deployada en vercel.
+
 #### API URL: "https://api-mundo-gaming.vercel.app"
+
 ##### Endpoints:
 
   #####Endpoint: "/api/games" 
